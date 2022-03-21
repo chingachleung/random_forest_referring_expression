@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OrdinalEncoder
 
 np.random.seed(42)
-facts = pd.read_csv("gum_refexp_data.tab", sep="\t", quoting=3)
+facts = pd.read_csv("data.tab", sep="\t", quoting=3)
 
 facts["mentioned_bin"] = np.where(facts["mentioned"]=="yes",1,0)
 facts["label_bin"] = np.where(facts["label"]=="pronoun",1,0)
