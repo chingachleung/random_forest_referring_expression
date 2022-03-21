@@ -42,16 +42,16 @@ y = train["label_bin"]
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
+#baseline model using logistic regression 
 reg = LogisticRegression()
-
 reg.fit(X,y)
-
 preds = reg.predict(dev[features])
 
 import statsmodels.discrete.discrete_model as sm
 model = sm.Logit(y, X)
 model.fit().summary()
 
+#improved random forrest model
 cat_features = ["entity","mentioned","genre","cpos"]
 num_features =  ["position","funcs_product","distance_entity_product","ordinal_next_func","ordinal_entity"]
 encoder = OrdinalEncoder()
